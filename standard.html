@@ -1,6 +1,20 @@
 <!DOCTYPE html>
 <!--
 This whole thing is a meme lol.
+
+        DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE 
+                    Version 2, December 2004 
+
+ Copyright (C) 2004 Sam Hocevar <sam@hocevar.net> 
+
+ Everyone is permitted to copy and distribute verbatim or modified 
+ copies of this license document, and changing it is allowed as long 
+ as the name is changed. 
+
+            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE 
+   TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION 
+
+  0. You just DO WHAT THE FUCK YOU WANT TO.
 -->
 <html>
     <head>
@@ -21,7 +35,7 @@ This whole thing is a meme lol.
             font-family: Impact, Arial, Liberation Sans, fantasy, sans-serif;
             font-size: 64px;
             color: white;
-            text-shadow: 1px 1px 2px black;
+            text-outline: 4px black;
         }
         
         #top {
@@ -31,13 +45,22 @@ This whole thing is a meme lol.
         #bottom {
             bottom: 16px;
         }
+        
+        /**http://stackoverflow.com/questions/4919076/outline-effect-to-text**/
+        .stroke {
+            text-shadow:
+            -2px -2px 0 black,
+            2px -2px 0 black,
+            -2px 2px 0 black,
+            2px 2px 0 black;  
+        }
         </style>
     </head>
     <body>
         <div id="content">
-            <span id="top"></span>
+            <span id="top" class="stroke"></span>
             <img id="image"/>
-            <span id="bottom"></span>
+            <span id="bottom" class="stroke"></span>
         </div>
         <!-- http://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript#2880929 -->
         <script>
