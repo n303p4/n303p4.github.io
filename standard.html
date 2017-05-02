@@ -18,6 +18,7 @@ This whole thing is a meme lol.
 -->
 <html>
     <head>
+        <title></title>
         <style>
         #content, #image {
             position: absolute;
@@ -77,6 +78,7 @@ This whole thing is a meme lol.
                    urlParams[decode(match[1])] = decode(match[2]);
             })();
         
+        document.title = urlParams["title"] || "This is a meme";
         document.getElementById("top").innerHTML = urlParams["top"] || "This is";
         document.getElementById("bottom").innerHTML = urlParams["bottom"] || "a meme";
         document.getElementById("image").src = urlParams["image"] || "https://placehold.it/640x640";
