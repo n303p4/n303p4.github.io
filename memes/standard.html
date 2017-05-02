@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--
+This whole thing is a meme lol.
+-->
+<html>
+    <head>
+        <style type="text/css">
+        #image {
+            position: absolute;
+            width: 640px;
+            height: 640px;
+        }
+        
+        #top, #bottom {
+            z-index: 10;
+            position: absolute;
+            text-align: center;
+            width: 640px;
+            max-width: 640px;
+            overflow: hidden;
+            font-family: Impact, Arial, Liberation Sans, fantasy, sans-serif;
+            font-size: 64px;
+            color: white;
+            text-shadow: 1px 1px 2px black;
+        }
+        
+        #top {
+            top: 16px;
+        }
+        
+        #bottom {
+            bottom: 16px;
+        }
+        </style>
+    </head>
+    <body>
+        <div style="width: 640px; height: 640px; position: relative;">
+            <span id="top"></span>
+            <img id="image"/>
+            <span id="bottom"></span>
+        </div>
+        <script>
+        var urlParams;
+            (window.onpopstate = function () {
+                var match,
+                    pl     = /\+/g,  // Regex for replacing addition symbol with a space
+                    search = /([^&=]+)=?([^&]*)/g,
+                    decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
+                    query  = window.location.search.substring(1);
+
+                urlParams = {};
+                while (match = search.exec(query))
+                   urlParams[decode(match[1])] = decode(match[2]);
+            })();
+        
+        document.getElementById("top").innerHTML = urlParams["top"] || "This is";
+        document.getElementById("bottom").innerHTML = urlParams["bottom"] || "a meme";
+        document.getElementById("image").src = urlParams["url"] || "https://placehold.it/640x640";
+        </script>
+    </body>
+</html>
