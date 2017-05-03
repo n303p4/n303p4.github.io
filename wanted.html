@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<!--
+This whole thing is a meme lol.
+
+        DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE 
+                    Version 2, December 2004 
+
+ Copyright (C) 2004 Sam Hocevar <sam@hocevar.net> 
+
+ Everyone is permitted to copy and distribute verbatim or modified 
+ copies of this license document, and changing it is allowed as long 
+ as the name is changed. 
+
+            DO WHAT THE FUCK YOU WANT TO PUBLIC LICENSE 
+   TERMS AND CONDITIONS FOR COPYING, DISTRIBUTION AND MODIFICATION 
+
+  0. You just DO WHAT THE FUCK YOU WANT TO.
+-->
+<html>
+    <head>
+        <title></title>
+        <style>
+        #content, #image, #poster {
+            position: absolute;
+        }
+        
+        #image {
+            left: 80px;
+            top: 220px;
+            width: 560px;
+            height: 560px;
+        }
+        
+        #poster {
+            z-index: -1;
+            position: absolute;
+            width: 720px;
+        }
+        
+        #top, #bottom {
+            z-index: 10;
+            position: absolute;
+            text-align: center;
+            width: 640px;
+            max-width: 640px;
+            overflow: hidden;
+            font-family: Impact, Arial, Liberation Sans, fantasy, sans-serif;
+            font-size: 64px;
+            color: white;
+            text-outline: 4px black;
+        }
+        
+        /**http://stackoverflow.com/questions/4919076/outline-effect-to-text**/
+        .stroke {
+            text-shadow:
+            -2px -2px 0 black,
+            2px -2px 0 black,
+            -2px 2px 0 black,
+            2px 2px 0 black;  
+        }
+        </style>
+    </head>
+    <body>
+        <div id="content">
+            <span id="top" class="stroke"></span>
+            <img id="image"/>
+            <img id="poster" src="wanted.jpg"/>
+            <span id="bottom" class="stroke"></span>
+        </div>
+        <!-- http://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript#2880929 -->
+        <script>
+        var urlParams;
+            (window.onpopstate = function () {
+                var match,
+                    pl     = /\+/g,  // Regex for replacing addition symbol with a space
+                    search = /([^&=]+)=?([^&]*)/g,
+                    decode = function (s) { return decodeURIComponent(s.replace(pl, " ")); },
+                    query  = window.location.search.substring(1);
+
+                urlParams = {};
+                while (match = search.exec(query))
+                   urlParams[decode(match[1])] = decode(match[2]);
+            })();
+        
+        document.title = urlParams["title"] || "WANTED: Meme";
+        document.getElementById("image").src = urlParams["image"] || "https://placehold.it/640x640";
+        </script>
+    </body>
+</html>
